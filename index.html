@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: green;
+            display: flex;
+            justify-content: center;
+            background-image: url(https://c4.wallpaperflare.com/wallpaper/730/57/259/itzmauuuroo-hackers-anonymous-hd-wallpaper-preview.jpg);
+            background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+        }
+        .container{
+            background-image: url(https://w.forfun.com/fetch/21/2120e28cedac20e6d0b4514d22ea5ac9.jpeg?h=600&r=0.5);
+            margin: 20px;
+            box-shadow: 0px 0px 20px green;
+            font-size: 22px;
+            font-weight: 550;
+            border: 10px solid black;
+            width: 40vw;
+            height: 90vh;
+            /* margin-top: 30px; */
+            border-radius: 10px;
+        }
+        .loadingtext{
+            display: none;
+            margin: 20px;
+            color: green;
+        }
+        body :nth-last-child(8){
+            font-size: 50px;
+            /* text-shadow: 0.1em 0 rgb(59, 75, 63), 0 0 green; */
+            margin-bottom: 20px;
+            font-weight: bolder;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgb(255, 0, 0);
+        }
+        .loadingtext:last-child{
+            font-size: 30px;
+            color: red;
+            margin: 30px -70px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="text">You Are Hacked</p>
+        <p class="loadingtext">Initializing Hacking...</p>
+        <p class="loadingtext">Reading Your Files...</p>
+        <p class="loadingtext">Password Files Detected...</p>
+        <p class="loadingtext">Unlock All Privacy...</p>
+        <p class="loadingtext">Sending All Password and Personal Files to Server...</p>
+        <p class="loadingtext">Cleaning UP Your Device...</p>
+        <p class="loadingtext">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hacking Completed Successfully</p>
+    </div>
+    <div class="box"></div>
+    <script>
+        const paragraphs = document.querySelectorAll('.loadingtext');
+
+        function displayParagraphsWithDelay() {
+            let index = 0;
+            let intervalId = setInterval(() => {
+                paragraphs[index].style.display = 'block'; // Display the paragraph
+                index++;
+                if (index === paragraphs.length) {
+                    clearInterval(intervalId); // Stop the interval after displaying all paragraphs
+                }
+            },Math.random()*4000); // Change this delay as needed (currently set to 1 second)
+        }
+        displayParagraphsWithDelay();
+
+        let dotCounts = [1, 2, 3, 4, 5, 6]; // Dot counts for blinking
+        function toggleDots() {
+            let loadingTexts = document.querySelectorAll('.loadingtext');
+            loadingTexts.forEach((text, index) => {
+                let originalText = text.textContent;
+                let dotIndex = dotCounts[index] % 4; // Limit to 3 dots, then reset to 1
+                let dots = '.'.repeat(dotIndex);
+                text.textContent = originalText.replace(/\./g, '') + dots; // Update text with dots
+                dotCounts[index]++; // Increment dot count for the next iteration
+            });
+        }
+        let intervalId = setInterval(toggleDots, 200);
+    </script>
+</body>
+</html>
+
